@@ -13,7 +13,7 @@ import io.cucumber.java.en.*;
 
 import java.util.UUID;
 
-public class CoforgeFixtures {
+public class SDTFixtures {
 		
 	private CucumberTempoFixture cucumberTempoFixture = new CucumberTempoFixture();
     private CucumberBaseFixture fixture = new CucumberBaseFixture();

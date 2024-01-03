@@ -18,7 +18,8 @@ Feature: Sample feature file that interacts with an Appian application
 	6. Open src/main/resources/configs/users.properties and add a line for the above username that is of the form username=password (e.g. test.user=password)
 
 
-	Background: Login to Appian environment
+
+	Scenario: Login to Appian environment
 		Given I setup with "CHROME" browser
 		When I set appian URL to "https://techtamminaapps.appiancloud.com/suite/sites/automation-testing-application"
 		And I set appian version to "23.4"
