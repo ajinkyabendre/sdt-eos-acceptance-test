@@ -136,7 +136,15 @@ public class SDTFixtures {
         link.click();
     }
 
-    
+
+    @io.cucumber.java.en.Then("I see home page")
+    public void iSeeHomePage() {
+        WebElement firstName = CucumberTempoFixture.getSettings().getDriver().findElement(By.xpath("//*[@id=\"XrayComponentSelectionManager\"]/div/div[1]/div[2]/div/p/span"));
+        String value = firstName.getTagName();
+        System.out.println(value);
+    }
+
+
     
     /*************************************
      * PRIVATE HELPERS
@@ -145,6 +153,31 @@ public class SDTFixtures {
     private WebElement findComponentPluginIframe(WebDriver driver, String fieldName) {
 		// Find iframe within the component plugin with label fieldName
 		return driver.findElement(By.xpath("//label[text() = '" + fieldName + "']/ancestor::div[contains(@class, 'FieldLayout---field_layout')]//iframe"));
-	}	
-    
+	}
+
+    @When("I populate username with {string}")
+    public void iPopulateUsernameWith(String arg0) {
+        WebElement input = CucumberTempoFixture.getSettings().getDriver().findElement(By.xpath("//*[@id=\"un\"]"));
+        input.sendKeys(arg0);
+    }
+
+    @When("I populate password with {string}")
+    public void iPopulatePasswordWith(String arg0) {
+        WebElement input = CucumberTempoFixture.getSettings().getDriver().findElement(By.xpath("//*[@id=\"pw\"]"));
+        input.sendKeys(arg0);
+    }
+
+
+    @And("I click Sign In Button")
+    public void iClickSignInButton() {
+        WebElement link = CucumberTempoFixture.getSettings().getDriver().findElement(By.xpath("/html/body/div[4]/div/form[2]/div[4]/div/div[2]/input"));
+        link.click();
+    }
+
+    @Given("I am on Sign In Page")
+    public void i_am_on_sign_in_page() {
+        // Write code here that turns the phrase above into concrete actions
+        CucumberTempoFixture.getSettings().getDriver().navigate().to("https://techtamminaapps.appiancloud.com/suite/portal/login.jsp");
+    }
+
 }
